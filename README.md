@@ -62,18 +62,35 @@ If the build succeeds, you can now run the code via the `build/testbed` executab
 
 ## INVESTIGATING BUILD FAILURE
 
-W10
-VS 16 2019 OR VS 17 2022
-GTX 1650 
+- W10 x64
+- GTX 1650 (2 GPU, second is AMD Radeon R7 200 Series)
+- CUDA 11.6
+- Optix 17.4 (env. path set)
+- VS 16 2019 
+- VS 17 2022
 
-Build CMD:
+
+Tried building for VS 17 2022. 
+
+Build CMD, using Developer Command Prompt:
 
     cmake . -G "Visual Studio 16 2019" -B build // OK
 	cmake --build build --config RelWithDebInfo -j 16 // FAILURE
-	
+
 See: https://github.com/NVlabs/instant-ngp/discussions/248
 
-ENV VARIABLES:
+Error: 
+     
+    Compiling CUDA source file ..\..\..\..\dependencies\tiny-cuda-nn\src\object.cu...
+    C:\src\gfx_framework\instant-ngp\dependencies\tiny-cuda-nn\include\tiny-cuda-nn/common.h(224): error : static assertion
+    failed with "MIN_GPU_ARCH=750 must bound __CUDA_ARCH__=520 from below, but doesn't." [C:\src\gfx_framework\instant-ngp
+    \build\dependencies\tiny-cuda-nn\src\tiny-cuda-nn.vcxproj]
+	
+- followed by long cascade of errors.
+
+Installed VS 16 2019. Reinstalled CUDA 11.6. Tried building for both VS 16 and 17.
+
+Set env variables:
 
     NVIDIA_VISIBLE_DEVICES=$gpu_id
     CUDA_VISIBLE_DEVICES=0
@@ -81,7 +98,7 @@ ENV VARIABLES:
 	
 See: https://stackoverflow.com/questions/39649102/how-do-i-select-which-gpu-to-run-a-job-on
 
-No change.
+No change. 
 
 ----
 
