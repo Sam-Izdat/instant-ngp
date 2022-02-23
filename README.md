@@ -65,7 +65,7 @@ If the build succeeds, you can now run the code via the `build/testbed` executab
 - W10 x64
 - GTX 1650 (2 GPU, second is AMD Radeon R7 200 Series)
 - CUDA 11.6
-- Optix 17.4 (env. path set)
+- Optix 7.4.0 (env. path set)
 - VS 16 2019 
 - VS 17 2022
 
