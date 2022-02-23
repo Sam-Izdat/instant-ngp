@@ -83,10 +83,10 @@ Error:
      
     Compiling CUDA source file ..\..\..\..\dependencies\tiny-cuda-nn\src\object.cu...
     C:\src\gfx_framework\instant-ngp\dependencies\tiny-cuda-nn\include\tiny-cuda-nn/common.h(224): error : static assertion
-    failed with "MIN_GPU_ARCH=750 must bound __CUDA_ARCH__=520 from below, but doesn't." [C:\src\gfx_framework\instant-ngp
+    failed with "MIN_GPU_ARCH=750 must bound __CUDA_ARCH__=520 from below, but doesn't." [<....>\instant-ngp
     \build\dependencies\tiny-cuda-nn\src\tiny-cuda-nn.vcxproj]
 	
-- followed by long cascade of errors.
+\- followed by long cascade of errors.
 
 Installed VS 16 2019. Reinstalled CUDA 11.6. Tried building for both VS 16 and 17.
 
