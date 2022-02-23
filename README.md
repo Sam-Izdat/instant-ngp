@@ -58,6 +58,33 @@ If the build fails, please consult [this list of possible fixes](https://github.
 
 If the build succeeds, you can now run the code via the `build/testbed` executable or the `scripts/run.py` script described below.
 
+----
+
+## INVESTIGATING BUILD FAILURE
+
+W10
+VS 16 2019 OR VS 17 2022
+GTX 1650 
+
+Build CMD:
+
+    cmake . -G "Visual Studio 16 2019" -B build // OK
+	cmake --build build --config RelWithDebInfo -j 16 // FAILURE
+	
+See: https://github.com/NVlabs/instant-ngp/discussions/248
+
+ENV VARIABLES:
+
+    NVIDIA_VISIBLE_DEVICES=$gpu_id
+    CUDA_VISIBLE_DEVICES=0
+	TCNN_CUDA_ARCHITECTURES=75
+	
+See: https://stackoverflow.com/questions/39649102/how-do-i-select-which-gpu-to-run-a-job-on
+
+No change.
+
+----
+
 If automatic GPU architecture detection fails, (as can happen if you have multiple GPUs installed), set the `TCNN_CUDA_ARCHITECTURES` enivonment variable for the GPU you would like to use. The following table lists the values for common GPUs. If your GPU is not listed, consult [this exhaustive list](https://developer.nvidia.com/cuda-gpus).
 
 | RTX 30X0 | A100 | RTX 20X0 | TITAN V / V100 | GTX 10X0 / TITAN Xp | GTX 9X0 | K80 |
